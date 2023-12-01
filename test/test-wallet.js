@@ -1,32 +1,34 @@
-const Wallet = require("./wallet");
-// Method that returns data signature:
-const sign = (data, publickey, privatekey) => {
-    const cert = Wallet.getCertificate(publickey, privatekey);
-    return createsign('SHA256').update(data).sign(cert, 'hex');
+const Wallet = require("../wallet");
+const {createSign, createVerify} = require('crypto');
+
+// returning data signature:
+const sign = (data, publicKey, privateKey) => {
+    const cert = Wallet.getNodePrivateKey(publicKey, privateKey);
+    return createSign('SHA256').update(data).sign(cert, 'hex');
 };
 
-// Method that verifies signature:
-const verify = (data, publickey, signature) => {
-    const cert = Wallet.getCertificate(publickey);
-    return createVerify(sign).update(data).verify(cert, signature, 'hex');
+// verifing signature:
+const verify = (data, publicKey, signature) => {
+    const cert = Wallet.getNodePublicKey(publicKey);
+    return createVerify('SHA256').update(data).verify(cert, signature, 'hex');
 };
 
 // Example wallets:
-const bob = Wallet.create;
-const alice = Wallet.create;
+const bob   = Wallet.create();
+const alice = Wallet.create();
 
 // Case #1: Order that has a valid signature:
-const orderOne = "send a buck from bob to alice";
-const orderOneIssuer = bob.publickey;
-const orderOneSignature =  sign(orderOne, orderOndeIssuer, bob.privatekey);
+const orderOne = 'send ten bucks from bob to alice';
+const orderOneIssuer = bob.publicKey;
+const orderOneSignature = sign(orderOne, orderOneIssuer, bob.privateKey);
 
 // Case #2: Order that has a fraud signature from another person:
-const orderTwo = "send 100 bucks from bob to alice";
-const orderTwoIssuer = bob.publickey;
-const orderTwoSignature =  sign(orderOne, orderOndeIssuer, alice.privatekey);
-
+const orderTwo = 'send thousand bucks from bob to alice';
+const orderTwoIssuer = bob.publicKey;
+const orderTwoSignature = sign(orderTwo, orderOneIssuer, alice.privateKey);
+ 
 // Verification:
-console.log('order #1 status: ', verify(orderOne, orderOneIssuer, orderOneSignature));
-console.log('order #2 status: ', verify(orderTwo, orderTwoIssuer, orderTwoSignature));
+console.log('Order #1 status:', verify(orderOne, orderOneIssuer, orderOneSignature));
+console.log('Order #2 status:', verify(orderTwo, orderTwoIssuer, orderTwoSignature));
 
-// Expected result: true, false
+// Expected results: true, false
