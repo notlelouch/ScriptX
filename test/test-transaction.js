@@ -1,7 +1,6 @@
-const {createHash, createECDH, createSign, createVerify} = require('crypto');
-
 const Transaction = require('../transaction');
 const Wallet = require('../wallet');
+const {createHash, createECDH, createSign, createVerify} = require('crypto');
 
 const bob = Wallet.create();
 const alice = Wallet.create();

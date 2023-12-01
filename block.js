@@ -1,3 +1,6 @@
+const {createHash, createECDH, createSign, createVerify} = require('crypto');
+const CONFIG = exports.CONFIG = ({BLOCK_DIFFICULTY: 2});
+
 class Block {
     constructor(opts = {}) {
         Object.assign(this, {
@@ -6,8 +9,8 @@ class Block {
     }
 
     hash() {
-        const head = JSON.stingify(this,['parentHash', 'stateHash', 'miner', 'nounce']);
-        const tail = JSON.stingify(this.transactions.map(tx => tx.hash()));
+        const head = JSON.stringify(this,['parentHash', 'stateHash', 'miner', 'nounce']);
+        const tail = JSON.stringify(this.transactions.map(tx => tx.hash()));
         return createHash('SHA256').update(head + tail).digest('hex');
     }
 
@@ -19,7 +22,9 @@ class Block {
     }
 
     test() {
-        const max = '0'.repeat(CONFIG.BLOCK_DIFFICULTY);
+        const mask = '0'.repeat(CONFIG.BLOCK_DIFFICULTY);
         return this.hash().startsWith(mask);
     }
 }
+
+module.exports = Block;
