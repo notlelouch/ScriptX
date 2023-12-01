@@ -1,3 +1,6 @@
+const Wallet = require('./wallet');
+const {createHash, createECDH, createSign, createVerify} = require('crypto');
+
 class Transaction {
     constructor(opts={}) {
         Object.assign(this, {
@@ -23,3 +26,5 @@ class Transaction {
         return signature.verify(cert, this.signature, 'hex');
     }
 }
+
+module.exports = Transaction;
