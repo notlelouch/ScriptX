@@ -39,6 +39,6 @@ blockchain.push(
     }).mine()
 );
 
-// Block hash must start from two zeroes
+// Block hash must start from two zeroes(for our example blockchain)
 console.log(blockchain[1].hash());
 
