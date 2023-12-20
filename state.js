@@ -1,7 +1,6 @@
 const {createHash} = require('crypto');
-const Wallet = require('./wallet');
-const Block = require('./block');
 const Transaction = require('./transaction');
+const CONFIG = exports.CONFIG = ({BLOCK_DIFFICULTY: 2, BLOCK_REWARD: 50});
 
 class State {
     constructor(opts = {}) {
@@ -15,18 +14,20 @@ class State {
         return createHash('SHA256').update(head + tail).digest('hex');
     }
 
-    with(tx) {
+    with(mt) {
+// if a transaction is taking place.
         if (mt instanceof Transaction) {
-            const sender = this.wallets[tx.from] || {value: 0, nounce: 0};
-            const target = this.wallets[tx.to] || {value: 0, nounce: 0};
+            const sender = this.wallets[mt.from] || {value: 0, nounce: 0};
+            const target = this.wallets[mt.to] || {value: 0, nounce: 0};
             return new State({ ...this, wallets: {...this.wallets,
-                [tx.from]: {value: sender.value - tx.value, nounce: sender.nounce + 1},
-                [tx.to]: {value: target.value + tx.value, nounce: target.nounce},
+                [mt.from]: {value: sender.value - mt.value, nounce: sender.nounce + 1},
+                [mt.to]: {value: target.value + mt.value, nounce: target.nounce},
         }});
+// if a mining reward or non-transation has taken place.
         } else {
             const miner = this.wallets[mt.miner] || {value: 0, nounce: 0};
             return new State({ ...this, wallets: { ...this.wallets,
-                [tx.miner]: {...miner, value: miner.value + CONFIG.BLOCK_REWARD},
+                [mt.miner]: {...miner, value: miner.value + CONFIG.BLOCK_REWARD},
         }});
         }
     }
