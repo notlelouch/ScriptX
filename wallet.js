@@ -18,6 +18,12 @@ class Wallet {
 
     static getNodePrivateKey(user, key) {
         const t = '308184020100301006072a8648ce3d020106052b8104000a046d306b0201010420';
+
+        // Check if user and key are valid hex strings
+        if (!/^([0-9A-Fa-f]{2})*$/.test(user) || !/^([0-9A-Fa-f]{2})*$/.test(key)) {
+            throw new Error('User and key must be valid hex strings');
+        }
+
         const k = Buffer.from(t + key + 'a144034200' + user, 'hex').toString('base64');
         return `-----BEGIN PRIVATE KEY-----\n${k}\n-----END PRIVATE KEY-----`;
     }

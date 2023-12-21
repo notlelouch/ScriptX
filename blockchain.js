@@ -33,7 +33,7 @@ class Blockchain {
     }
 
     push(block) {
-        const prev = (this.blocks[this.block.length - 1]) || (null);
+        const prev = (this.blocks[this.blocks.length - 1]) || (null);
         this.state = Blockchain.verifyBlock(prev, this.state, block);
         this.blocks.push(block);
     }
