@@ -4,7 +4,7 @@ Scriptx
 
 Introduction
 ============
-Meet ScriptX, a small yet powerful cryptocurrency. ScriptX offers essential features like straightforward wallet creation, simplified transaction management (including signing and verification), and the capacity to organize transactions into blocks for mining. ScriptX also adeptly tracks state changes, providing clear information for a smooth experience.
+Meet ScriptX, a small yet powerful blockchain implementation. ScriptX offers essential features like straightforward wallet creation, simplified transaction management (including signing and verification), and the capacity to organize transactions into blocks for mining. ScriptX also adeptly tracks state changes, providing clear information for a smooth experience.
 
 Installation & Usage
 ====================
