@@ -4,12 +4,7 @@ Scriptx
 
 Introduction
 ============
-ScriptX is a small fully functional cryptocurrency.
-ScriptX contains utilities for generating wallets.
-ScriptX can create, sign and verify transactions.
-ScriptX is able to pack transactions into blocks and mine them.
-ScriptX can track state changes and present them in a handy way.
-
+Meet ScriptX, a small yet powerful cryptocurrency. ScriptX offers essential features like straightforward wallet creation, simplified transaction management (including signing and verification), and the capacity to organize transactions into blocks for mining. ScriptX also adeptly tracks state changes, providing clear information for a smooth experience.
 Installation & Usage
 ====================
 Fork the repository and clone it in your local machine
