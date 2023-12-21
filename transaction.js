@@ -1,7 +1,7 @@
 const Wallet = require('./wallet');
 const {createHash, createECDH, createSign, createVerify} = require('crypto');
 
-const Transaction = exports.Transaction = class Transaction {
+class Transaction {
     constructor(opts = {}) {
       Object.assign(this, {
         from: null, to: null, value: 0, nonce: 0, signature: null,

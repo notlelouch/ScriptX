@@ -1,31 +1,29 @@
-const State = require("../state");
 const Transaction = require('../transaction');
 const Wallet = require('../wallet');
-const Block = require('../block');
 const Blockchain = require('../blockchain');
 
-// Creating two wallets
+// Create wallets:
 const alice = Wallet.create();
 const bob = Wallet.create();
 
-// Creating blockchain and mining first empty reward block
+// Create blockchain and mine first empty reward block:
 const chain = new Blockchain();
-chain.mine(bob.publickey);
+chain.mine(bob.publicKey);
 
-// Check balance (must be bob: 50 and alice: 0)
-console.log("Bob: ", chain.baln(bob.publickey)); // 50
-console.log("Alice: ", chain.baln(alice.publickey)); // 0
+// Check balance (must be Bob: 50 and Alice: 0):
+console.log("Bob: ", chain.baln(bob.publicKey));
+console.log("Alice: ", chain.baln(alice.publicKey)); 
 
-// Mine new block with transaction to alice
-chain.mine(bob.publickey, [
+// Mine new block with transaction to Alice:
+chain.mine(bob.publicKey, [
     new Transaction({
-        from: bob.publickey,
-        to: alice.publickey,
-        value: 10,
+        from: bob.publicKey,
+        to: alice.publicKey,
+        value: 15,
         nounce: 0,
-    }).sign(bob.privatekey)
+    }).sign(bob.privateKey),
 ]);
 
-// Check balance again (must be bob: 40 and alice: 10)
-console.log("Bob: ", chain.baln(bob.publickey)); // 40
-console.log("Alice: ", chain.baln(alice.publickey)); // 10
+// Check balance again (must be Bob: 85 and Alice: 15):
+console.log("Bob: ", chain.baln(bob.publicKey)); 
+console.log("Alice: ", chain.baln(alice.publicKey));
