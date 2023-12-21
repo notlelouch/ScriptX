@@ -1,5 +1,5 @@
 ==========
-ScriptX
+Scriptx
 ==========
 
 
@@ -13,17 +13,11 @@ ScriptX can track state changes and present them in a handy way.
 
 Installation & Usage
 ====================
-fork the repository and clone it in your local machine
+Fork the repository and clone it in your local machine
 
 .. code-block:: 
     
     git clone https://github.com/<username>/ScriptX.git
-
-And used just as a regular JavaScript library:
-
-.. code-block:: javascript
-
-    const {Wallet, Transaction, Block, Blockchain} = require('goothereum');
 
 Now you can write some simple blockchain interactions:
 
