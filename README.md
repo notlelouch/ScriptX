@@ -1,4 +1,3 @@
-==========
 Scriptx
 ==========
 
@@ -15,13 +14,13 @@ Installation & Usage
 ====================
 Fork the repository and clone it in your local machine
 
-.. code-block:: 
-    
+```
     git clone https://github.com/<username>/ScriptX.git
+```
 
 Now you can write some simple blockchain interactions:
 
-.. code-block:: javascript
+``` javascript
 
     // Create wallets:
     const alice = Wallet.create();
@@ -48,5 +47,6 @@ Now you can write some simple blockchain interactions:
     // Check balance again (must be Bob: 85 and Alice: 15):
     console.log('Bob:',   chain.baln(bob  .publicKey));
     console.log('Alice:', chain.baln(alice.publicKey));
+```
 
 ScriptX is based on basic blockchain principles but is not a production-ready product
