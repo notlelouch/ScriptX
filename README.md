@@ -45,4 +45,4 @@ console.log('Bob:',   chain.baln(bob  .publicKey));
 console.log('Alice:', chain.baln(alice.publicKey));
 ```
 
-ScriptX is based on basic blockchain principles but is not a production-ready product
+ScriptX is based on basic blockchain principles but is not a production-ready product.
