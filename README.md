@@ -62,7 +62,7 @@ Explore the functionality and ensure the correctness of the library by running t
 
 - [test-block.js](test/test-block.js)
 - [test-blockchain.js](test/test-blockchain.js)
-- [test-state.js](tests/tes-state.js)
+- [test-state.js](test/tes-state.js)
 - [test-transaction.js](test/test-transaction.js)
 - [test-wallet.js](test/test-wallet.js)
 - [testing-ScriptX.js](test/testing-ScriptX.js)
