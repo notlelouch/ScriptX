@@ -1,18 +1,27 @@
-Scriptx
-==========
+# Scriptx
 
+## Introduction
 
-Introduction
-============
-Meet ScriptX, a small yet powerful blockchain implementation. ScriptX offers essential features like straightforward wallet creation, simplified transaction management (including signing and verification), and the capacity to organize transactions into blocks for mining. ScriptX also adeptly tracks state changes, providing clear information for a smooth experience.
+Meet ScriptX, a powerful blockchain implementation. ScriptX offers essential features like straightforward wallet creation, simplified transaction management (including signing and verification), and the capacity to organize transactions into blocks for mining. ScriptX also adeptly tracks state changes, providing clear information for a smooth experience.
 
-Installation & Usage
-====================
-Fork the repository and clone it in your local machine
+## Features
 
-``` github
-git clone https://github.com/<username>/ScriptX.git
-```
+- **Wallet Creation:** Generate secure public-private key pairs for wallet management.
+- **Transaction Handling:** Sign and verify transactions securely using cryptographic functions.
+- **Block Mining:** Mine blocks with proof-of-work and validate transactions for added security.
+- **State Tracking:** Keep track of wallet balances and nonce values for seamless transaction processing.
+
+## Installation & Usage
+
+Clone the repository:
+
+Clone the repository:
+
+   ```bash
+    git clone https://github.com/<your-username>/ScriptX.git
+   ```
+
+## Usage
 
 Now you can write some simple blockchain interactions:
 
@@ -45,4 +54,20 @@ console.log('Bob:',   chain.baln(bob  .publicKey));
 console.log('Alice:', chain.baln(alice.publicKey));
 ```
 
-ScriptX is based on basic blockchain principles but is not a production-ready product.
+**Note:** ScriptX is based on fundamental blockchain principles and is intended for educational purposes. It is not recommended for production use.
+
+## Tests
+
+Explore the functionality and ensure the correctness of the library by running the provided tests:
+
+- [test-block.js](tests/test-block.js)
+- [test-blockchain.js](tests/test-blockchain.js)
+- [test-state.js](tests/test-state.js)
+- [test-transaction.js](tests/test-transaction.js)
+- [test-wallet.js](tests/test-wallet.js)
+- [testing-ScriptX.js](tests/testing-ScriptX.js)
+
+
+## Contributing
+
+Contributions are welcome! If you have ideas for improvements, new features, or bug fixes, please open an issue or submit a pull request.
