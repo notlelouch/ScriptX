@@ -9,14 +9,13 @@ Meet ScriptX, a powerful blockchain implementation. ScriptX offers essential fea
 - **Block Mining:** Mine blocks with proof-of-work and validate transactions for added security.
 - **State Tracking:** Keep track of wallet balances and nonce values for seamless transaction processing.
 
-## Installation & Usage
+## Installation
 
-Clone the repository:
-
-Clone the repository:
+Clone the repository to your local machine:
 
    ```bash
     git clone https://github.com/<your-username>/ScriptX.git
+    cd ScriptX
    ```
 
 ## Usage
