@@ -18,6 +18,12 @@ Clone the repository to your local machine:
     cd ScriptX
    ```
 
+Navigate to the project directory:
+
+   ```bash
+    cd ScriptX
+   ```
+
 ## Usage
 
 Now you can write some simple blockchain interactions:
